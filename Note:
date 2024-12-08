@@ -1,0 +1,11 @@
+1 - From a Fresh Ubuntu 16.04
+2 - Install apache
+  sudo apt-get update
+  sudo apt-get install apache2
+3 - Create flder in /var/cgi-bin
+4 - Apache reload
+  service apache2 reload
+  perlmaven.com/perl-cgi-script-with-apache2
+5 - Instal cpan 
+  $ cpan JSON  
+6 - https://www.youtube.com/watch?v=fXAKRaq-6gw&feature=youtu.be
