@@ -73,21 +73,21 @@ document.getElementById('form-mascota').onsubmit = function(event) {
 
 // Función para cargar y mostrar la lista de mascotas registradas
 function loadMascotas() {
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', 'myScriptAjax.pl?action=listar', true);
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState == 4 && xhr.status == 200) {
-                var mascotas = JSON.parse(xhr.responseText);
-                var output = "<ul>";
-                mascotas.forEach(function(mascota) {
-                    output += "<li>" + mascota.nombre + " (" + mascota.sexo + ") - Nacido el " + mascota.fecha_nacimiento + "</li>";
-                });
-                output += "</ul>";
-                document.getElementById('resultado').innerHTML = output;
-            }
-        };
-        xhr.send();
-    }
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'myScriptAjax.pl?action=listar', true);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            var mascotas = JSON.parse(xhr.responseText);
+            var output = "<table border='1'><thead><tr><th>Nombre</th><th>Sexo</th><th>Fecha de Nacimiento</th></tr></thead><tbody>";
+            mascotas.forEach(function(mascota) {
+                output += "<tr><td>" + mascota.nombre + "</td><td>" + mascota.sexo + "</td><td>" + mascota.fecha_nacimiento + "</td></tr>";
+            });
+            output += "</tbody></table>";
+            document.getElementById('resultado').innerHTML = output;
+        }
+    };
+    xhr.send();
+}
 
     // Cargar la lista de mascotas cuando se carga la página
     window.onload = function() {

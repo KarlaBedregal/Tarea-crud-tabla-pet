@@ -1,0 +1,10 @@
+link de youtube
+https://www.youtube.com/watch?v=YfWbMHdtIWY
+
+
+# Construimos la imagen
+docker build -t imascotas -f Dockerfile .
+
+# Corremos el contenedor en el puerto 8082
+docker run -d -p 8082:80 --name contenedormascotas imascotas
+
